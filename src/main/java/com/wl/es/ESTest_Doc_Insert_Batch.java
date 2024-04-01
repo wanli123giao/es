@@ -19,9 +19,11 @@ public class ESTest_Doc_Insert_Batch {
         BulkRequest request = new BulkRequest();
 
 
-        request.add(new IndexRequest().index("user").id("1001").source(XContentType.JSON,"name","zhangsan"));
-        request.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON,"name","lisi"));
-        request.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON,"name","wangwu"));
+        request.add(new IndexRequest().index("user").id("1001").source(XContentType.JSON,"name","zhangsan","age",30,"sex","男"));
+        request.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON,"name","lisi","age",50,"sex","男"));
+        request.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON,"name","wangwu","age",70,"sex","男"));
+//        request.add(new IndexRequest().index("user").id("1002").source(XContentType.JSON,"name","lisi"));
+//        request.add(new IndexRequest().index("user").id("1003").source(XContentType.JSON,"name","wangwu"));
         BulkResponse bulk = client.bulk(request, RequestOptions.DEFAULT);
         System.out.println(bulk.getTook());
         System.out.println(bulk.getItems());
