@@ -10,11 +10,11 @@ import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.client.indices.GetIndexResponse;
 
 public class ESTest_index_Delete {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         RestHighLevelClient client = new RestHighLevelClient(
                 RestClient.builder(new HttpHost("localhost", 9200)));
 
-        DeleteIndexRequest request=new DeleteIndexRequest("user");
+        DeleteIndexRequest request = new DeleteIndexRequest("user");
         AcknowledgedResponse response = client.indices().delete(request, RequestOptions.DEFAULT);
         System.out.println(response.isAcknowledged());
 //        System.out.println(response.getMappings());
@@ -22,5 +22,5 @@ public class ESTest_index_Delete {
 //        System.out.println(acknowledged);
         client.close();
     }
-    }
+}
 
